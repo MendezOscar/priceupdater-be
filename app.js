@@ -27,11 +27,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas
-//app.get('/', (req, res) => {
-//  res.send('Hello World !');
-//});
-
 app.use('/api', require('./route/product'));
 
 // Middleware para Vue.js router modo history
