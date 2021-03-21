@@ -46,21 +46,18 @@ router.get("/get-products-after-30-days", async (req, res) => {
   try {
     const productDB = await Product.find();
     const carInsurance = new CarInsurance(productDB);
-    const productPrinter = function (product) {
-      console.log(`${product.name}, ${product.sellIn}, ${product.price}`);
-    };
+    const productPrinter = function (product) {};
 
-    for (let i = 1; i <= 30; i += 1) {
-      console.log ('entre');
+    console.log("_________________________________________________________________________________");
+    for (let i = 1; i <= 3; i += 1) {
       console.log(`Day ${i}`);
-      console.log("name, sellIn, price");
       carInsurance.updatePrice().forEach(productPrinter);
       console.log("");
     }
     res.json(carInsurance);
   } catch (error) {
     return res.status(400).json({
-      mensaje: "esta malo usted",
+      mensaje: "Error",
       error,
     });
   }
