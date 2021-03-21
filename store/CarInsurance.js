@@ -47,7 +47,7 @@ class CarInsurance {
         }
       } else if (this.products[i].name == "Full Coverage") {
         if (this.products[i].price < 50) {
-          this.products[i].price = this.products[i].price + 1;
+          this.products[i].price = this.products[i].price + 2;
           this.products[i].sellin = this.products[i].sellin - 1;
         } else {
           this.products[i].sellin = this.products[i].sellin - 1;
