@@ -48,12 +48,16 @@ router.get("/get-products-after-30-days", async (req, res) => {
     const carInsurance = new CarInsurance(productDB);
     const productPrinter = function (product) {};
 
-    console.log("_________________________________________________________________________________");
-    for (let i = 1; i <= 4; i += 1) {
+    let product = [];
+    console.log(
+      "_________________________________________________________________________________"
+    );
+    for (let i = 1; i <= 30; i += 1) {
       console.log(`Day ${i}`);
       carInsurance.updatePrice().forEach(productPrinter);
       console.log("");
     }
+
     res.json(carInsurance);
   } catch (error) {
     return res.status(400).json({
