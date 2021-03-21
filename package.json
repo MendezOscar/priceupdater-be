@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node app.js --exec",
-    "test": "mocha -r ts-node/register 'spec/*.ts'",
+    "test": "mocha",
     "dev": "nodemon app.js",
     "devbabel": "nodemon app.js --exec babel-node"
   },
