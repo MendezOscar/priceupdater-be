@@ -8,10 +8,10 @@ const app = express();
 // Conexion a DB
 const mongoose = require('mongoose');
 
-//const uri = 'mongodb://localhost:27017/product';
+const uri = 'mongodb://localhost:27017/product';
 
 // Conexion en la nube
-const uri = 'mongodb+srv://compara_user:compara2021@priceupdater.kzmz9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+//const uri = 'mongodb+srv://compara_user:compara2021@priceupdater.kzmz9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const options = {
   useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true
