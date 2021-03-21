@@ -16,60 +16,72 @@ class CarInsurance {
         this.products[i].name != "Full Coverage" &&
         this.products[i].name != "Special Full Coverage"
       ) {
-        if (this.products[i].price > 0) {
-          if (this.products[i].name != "Mega Coverage") {
-            if(this.products[i].name == "Super Sale"){
-              this.products[i].price = this.products[i].price - 2;
-              this.products[i].sellin = this.products[i].sellin - 1;
-            }else {
-              this.products[i].price = this.products[i].price - 1;
-              this.products[i].sellin = this.products[i].sellin - 1;
-            }
-          }
-        }
+        this.ifProductIsFCAndSFC(i);
       } else {
-        if (this.products[i].price < 50) {
-          this.products[i].price = this.products[i].price + 1;
-          this.products[i].sellin = this.products[i].sellin - 1;
-          if (this.products[i].name == "Special Full Coverage") {
-            if (this.products[i].sellIn < 11) {
-              if (this.products[i].price < 50) {
-                this.products[i].price = this.products[i].price + 2;
-              }
-            }
-            if (this.products[i].sellIn < 6) {
-              if (this.products[i].price < 50) {
-                this.products[i].price = this.products[i].price + 3;
-              }
-            }
-          }
-        }
+        this.ifProductNotIsFCAndSFC(i);
       }
       if (this.products[i].name != "Mega Coverage") {
         this.products[i].sellIn = this.products[i].sellIn - 1;
       }
       if (this.products[i].sellIn < 0) {
-        if (this.products[i].name != "Full Coverage") {
-          if (this.products[i].name != "Special Full Coverage") {
-            if (this.products[i].price > 0) {
-              if (this.products[i].name != "Mega Coverage") {
-                this.products[i].price = this.products[i].price - 1;
-              }
-            }
-          } else {
-            this.products[i].price =
-              this.products[i].price - this.products[i].price;
-          }
-        } else {
-          if (this.products[i].price < 50) {
-            this.products[i].price = this.products[i].price + 1;
-          }
-        }
+        this.ifProductNotIsFCandSFCandMC(i);
       }
     }
     console.log(this.products)
     return this.products;
 
+  }
+
+  ifProductNotIsFCandSFCandMC(i) {
+    if (this.products[i].name != "Full Coverage") {
+      if (this.products[i].name != "Special Full Coverage") {
+        if (this.products[i].price > 0) {
+          if (this.products[i].name != "Mega Coverage") {
+            this.products[i].price = this.products[i].price - 1;
+          }
+        }
+      } else {
+        this.products[i].price =
+          this.products[i].price - this.products[i].price;
+      }
+    } else {
+      if (this.products[i].price < 50) {
+        this.products[i].price = this.products[i].price + 1;
+      }
+    }
+  }
+
+  ifProductNotIsFCAndSFC(i) {
+    if (this.products[i].price < 50) {
+      this.products[i].price = this.products[i].price + 1;
+      this.products[i].sellin = this.products[i].sellin - 1;
+      if (this.products[i].name == "Special Full Coverage") {
+        if (this.products[i].sellIn < 11) {
+          if (this.products[i].price < 50) {
+            this.products[i].price = this.products[i].price + 2;
+          }
+        }
+        if (this.products[i].sellIn < 6) {
+          if (this.products[i].price < 50) {
+            this.products[i].price = this.products[i].price + 3;
+          }
+        }
+      }
+    }
+  }
+
+  ifProductIsFCAndSFC(i) {
+    if (this.products[i].price > 0) {
+      if (this.products[i].name != "Mega Coverage") {
+        if (this.products[i].name == "Super Sale") {
+          this.products[i].price = this.products[i].price - 2;
+          this.products[i].sellin = this.products[i].sellin - 1;
+        } else {
+          this.products[i].price = this.products[i].price - 1;
+          this.products[i].sellin = this.products[i].sellin - 1;
+        }
+      }
+    }
   }
 }
 

@@ -49,7 +49,7 @@ router.get("/get-products-after-30-days", async (req, res) => {
     const productPrinter = function (product) {};
 
     console.log("_________________________________________________________________________________");
-    for (let i = 1; i <= 3; i += 1) {
+    for (let i = 1; i <= 4; i += 1) {
       console.log(`Day ${i}`);
       carInsurance.updatePrice().forEach(productPrinter);
       console.log("");
